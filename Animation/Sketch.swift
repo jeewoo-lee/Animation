@@ -14,6 +14,7 @@ class Sketch : NSObject {
     let thirdTurtle: Tortoise
     let fourthTurtle: Tortoise
     let fifthTurtle: Tortoise
+    let sixthTurtle: Tortoise
     
     // L-systems
     let anotherKochConstruction: LindenmayerSystem
@@ -21,6 +22,7 @@ class Sketch : NSObject {
     let coniferousTree: LindenmayerSystem
     let genericSystem: LindenmayerSystem
     let lightningBolt: LindenmayerSystem
+    let myLSystem: LindenmayerSystem
     
     
     // This function runs once
@@ -38,7 +40,8 @@ class Sketch : NSObject {
         thirdTurtle = Tortoise(drawingUpon: canvas)
         fourthTurtle = Tortoise(drawingUpon: canvas)
         fifthTurtle = Tortoise(drawingUpon: canvas)
-
+        sixthTurtle = Tortoise(drawingUpon: canvas)
+        
         // Create two deterministic systems
         anotherKochConstruction = LindenmayerSystem(axiom: "S-F",
                                                     length: 100,
@@ -118,6 +121,21 @@ class Sketch : NSObject {
                                                  generations: 6,
                                                  pointToStartRenderingFrom: Point(x: 250, y: 470),
                                                  turtleToRenderWith: fifthTurtle)
+        
+        myLSystem = LindenmayerSystem(axiom: "SXXXXXX[-F]++[F]++[F][--F]++[F]++[F][--F]++[F]++[F]",
+                                            length: 50,
+                                            initialDirection: 45,
+                                            angle: 30,
+                                            reduction: 1.7,
+                                            rules: ["F": [
+                                                         RuleSet(odds: 1, successorText: "[F+F-FF+F-F]")
+                                                         ]
+
+                                                   ],
+                                            generations: 4,
+                                            pointToStartRenderingFrom: Point(x: 150, y: 100),
+                                            turtleToRenderWith: fifthTurtle)
+                                            
         // DEBUG:
         print("Rendering:")
         
@@ -131,7 +149,8 @@ class Sketch : NSObject {
 //        anotherKochConstruction.update(forFrame: canvas.frameCount)
 //        coniferousTree.update(forFrame: canvas.frameCount)
         
-        lightningBolt.update(forFrame: canvas.frameCount)
+        myLSystem.update(forFrame: canvas.frameCount)
+
     }
     
 }
