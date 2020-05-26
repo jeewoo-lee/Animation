@@ -25,6 +25,7 @@ struct LindenmayerSystem {
     let rules: [Character:[RuleSet]]
     let generations: Int
     let pointToStartRenderingFrom: Point
+   
     
     // Rendering state
     var word: String = ""
@@ -33,7 +34,7 @@ struct LindenmayerSystem {
     // Turtle to draw with
     let t: Tortoise
     
-    init(axiom: String, length: Double, initialDirection: Degrees, angle: Degrees, reduction: Double, rules: [Character:[RuleSet]], generations: Int, pointToStartRenderingFrom: Point, turtleToRenderWith: Tortoise) {
+    init(axiom: String, length: Double, initialDirection: Degrees, angle: Degrees, reduction: Double, rules: [Character:[RuleSet]], generations: Int, pointToStartRenderingFrom: Point, turtleToRenderWith: Tortoise ) {
         
         self.axiom = axiom
         self.length = length
@@ -44,7 +45,7 @@ struct LindenmayerSystem {
         self.generations = generations
         self.pointToStartRenderingFrom = pointToStartRenderingFrom
         self.t = turtleToRenderWith
-        
+         
         // Set up the system state
         word = axiom
         currentLength = length
@@ -154,6 +155,8 @@ struct LindenmayerSystem {
                 t.saveState()
             case "]":
                 t.restoreState()
+            case "1":
+                t.setPenColor(to: Color(hue: 206, saturation: 14, brightness: 97, alpha: 100))
             default:
                 break
             }

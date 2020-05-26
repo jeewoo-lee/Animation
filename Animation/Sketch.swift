@@ -94,7 +94,7 @@ class Sketch : NSObject {
                                           pointToStartRenderingFrom: Point(x: 150, y: 400),
                                           turtleToRenderWith: thirdTurtle)
         
-        lightningBolt = LindenmayerSystem(axiom: "SF",
+        lightningBolt = LindenmayerSystem(axiom: "S1F",
                                                  length: 100,
                                                  initialDirection: 270,
                                                  angle: 15,
@@ -113,6 +113,7 @@ class Sketch : NSObject {
                                                               RuleSet(odds: 1, successorText: "F+Y[++F-F]"),
                                                               RuleSet(odds: 1, successorText: "YY")
                                                               ]
+
                                                         ],
                                                  generations: 6,
                                                  pointToStartRenderingFrom: Point(x: 250, y: 470),
