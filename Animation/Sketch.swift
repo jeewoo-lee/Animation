@@ -130,7 +130,6 @@ class Sketch : NSObject {
 //        kochIsland.update(forFrame: canvas.frameCount)
 //        anotherKochConstruction.update(forFrame: canvas.frameCount)
 //        coniferousTree.update(forFrame: canvas.frameCount)
-//        genericSystem.update(forFrame: canvas.frameCount)
         
         lightningBolt.update(forFrame: canvas.frameCount)
     }
