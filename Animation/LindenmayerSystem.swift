@@ -159,6 +159,9 @@ struct LindenmayerSystem {
                 t.setPenColor(to: Color(hue: 206, saturation: 14, brightness: 97, alpha: 100))
             case "2":
                 t.setPenColor(to: Color(hue: 60, saturation: 100, brightness: 100, alpha: 100))
+            case "3":
+                t.setPenColor(to: Color(hue: 0, saturation: 70, brightness: 100, alpha: 100))
+            
             default:
                 break
             }
