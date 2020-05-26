@@ -122,18 +122,18 @@ class Sketch : NSObject {
                                                  pointToStartRenderingFrom: Point(x: 250, y: 470),
                                                  turtleToRenderWith: fifthTurtle)
         
-        myLSystem = LindenmayerSystem(axiom: "SXXXXXX[-F]++[F]++[F][--F]++[F]++[F][--F]++[F]++[F]",
+        myLSystem = LindenmayerSystem(axiom: "S2[-F]++[F]++[F][--F]++[F]++[F][--F]++[F]++[F]",
                                             length: 50,
                                             initialDirection: 45,
                                             angle: 30,
-                                            reduction: 1.7,
+                                            reduction: 2,
                                             rules: ["F": [
                                                          RuleSet(odds: 1, successorText: "[F+F-FF+F-F]")
                                                          ]
 
                                                    ],
-                                            generations: 4,
-                                            pointToStartRenderingFrom: Point(x: 150, y: 100),
+                                            generations: 3,
+                                            pointToStartRenderingFrom: Point(x: 250, y: 250),
                                             turtleToRenderWith: fifthTurtle)
                                             
         // DEBUG:
