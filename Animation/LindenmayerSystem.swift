@@ -141,6 +141,10 @@ struct LindenmayerSystem {
                 t.left(by: initialDirection)
                 t.penDown()
             case "F", "X":
+                t.penDown()
+                t.forward(steps: currentLength)
+            case "f":
+                t.penUp()
                 t.forward(steps: currentLength)
             case "+":
                 t.right(by: angle)
