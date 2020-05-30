@@ -139,7 +139,7 @@ class Sketch : NSObject {
                                             pointToStartRenderingFrom: Point(x: 250, y: 250),
                                             turtleToRenderWith: sixthTurtle)
         
-        mitsubishi = LindenmayerSystem(axiom: "S3F++F++F++",
+        mitsubishi = LindenmayerSystem(axiom: "S1F++F++F++",
                                                length: 50,
                                                initialDirection: 60,
                                                angle: 60,
@@ -164,9 +164,10 @@ class Sketch : NSObject {
         // Update rendering of all systems for the current frame of the animation
 //        kochIsland.update(forFrame: canvas.frameCount)
 //        anotherKochConstruction.update(forFrame: canvas.frameCount)
-//        coniferousTree.update(forFrame: canvas.frameCount)
         
-        mitsubishi.update(forFrame: canvas.frameCount)
+        coniferousTree.update(forFrame: canvas.frameCount, hue: [120,134,145,135,116,151], saturation: [100,97,87,84,26,71], brightness: [61,46,8,41,100,53])
+        
+        //mitsubishi.update(forFrame: canvas.frameCount, hue: [0], saturation: [70], brightness: [100])
 
     }
     
