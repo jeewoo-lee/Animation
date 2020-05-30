@@ -25,6 +25,9 @@ struct LindenmayerSystem {
     let rules: [Character:[RuleSet]]
     let generations: Int
     let pointToStartRenderingFrom: Point
+    let hue: [Int]
+    let saturation: [Int]
+    let brightness: [Int]
    
     
     // Rendering state
@@ -34,7 +37,7 @@ struct LindenmayerSystem {
     // Turtle to draw with
     let t: Tortoise
     
-    init(axiom: String, length: Double, initialDirection: Degrees, angle: Degrees, reduction: Double, rules: [Character:[RuleSet]], generations: Int, pointToStartRenderingFrom: Point, turtleToRenderWith: Tortoise ) {
+    init(axiom: String, length: Double, initialDirection: Degrees, angle: Degrees, reduction: Double, rules: [Character:[RuleSet]], generations: Int, pointToStartRenderingFrom: Point, turtleToRenderWith: Tortoise, hue: [Int], saturation: [Int], brightness: [Int]) {
         
         self.axiom = axiom
         self.length = length
@@ -45,7 +48,11 @@ struct LindenmayerSystem {
         self.generations = generations
         self.pointToStartRenderingFrom = pointToStartRenderingFrom
         self.t = turtleToRenderWith
-         
+        
+        self.hue = hue
+        self.saturation = saturation
+        self.brightness = brightness
+        
         // Set up the system state
         word = axiom
         currentLength = length
@@ -116,14 +123,14 @@ struct LindenmayerSystem {
     }
     
     // Render the next character of the system using the turtle provided
-    func update(forFrame currentFrame: Int, hue hueArray: [Int], saturation saturationArray: [Int], brightness brightnessArray: [Int]) {
+    func update(forFrame currentFrame: Int) {
         
         // Save current state of the canvas so that next L-system has "clean slate" to work with
         t.saveStateOfCanvas()
         
         // Required to bring canvas into same orientation and origin position as last run of draw() function for this turtle
         t.restoreStateOnCanvas()
-        
+
         // Render the alphabet of the L-system
         if currentFrame < word.count {
             
@@ -156,29 +163,23 @@ struct LindenmayerSystem {
             case "]":
                 t.restoreState()
             case "1":
-                t.setPenColor(to: Color(hue: hueArray[0], saturation: saturationArray[0], brightness: brightnessArray[0], alpha: 100))
+                t.setPenColor(to: Color(hue: hue[0], saturation: saturation[0], brightness: brightness[0], alpha: 100))
             case "2":
-                t.setPenColor(to: Color(hue: hueArray[1], saturation: saturationArray[1], brightness: brightnessArray[1], alpha: 100))
+                t.setPenColor(to: Color(hue: hue[1], saturation: saturation[1], brightness: brightness[1], alpha: 100))
             case "3":
-                t.setPenColor(to: Color(hue: hueArray[2], saturation: saturationArray[2], brightness: brightnessArray[2], alpha: 100))
-            case "4":
-                t.setPenColor(to: Color(hue: hueArray[3], saturation: saturationArray[3], brightness: brightnessArray[3], alpha: 100))
-            case "5":
-                t.setPenColor(to: Color(hue: hueArray[4], saturation: saturationArray[4], brightness: brightnessArray[4], alpha: 100))
-            case "6":
-                t.setPenColor(to: Color(hue: hueArray[5], saturation: saturationArray[5], brightness: brightnessArray[5], alpha: 100))
-            case "7":
-                t.setPenColor(to: Color(hue: hueArray[6], saturation: saturationArray[6], brightness: brightnessArray[6], alpha: 100))
-            case "8":
-                t.setPenColor(to: Color(hue: hueArray[7], saturation: saturationArray[7], brightness: brightnessArray[7], alpha: 100))
-            case "9":
-                t.setPenColor(to: Color(hue: hueArray[8], saturation: saturationArray[8], brightness: brightnessArray[8], alpha: 100))
-
-            
-
-
-            
-            
+                t.setPenColor(to: Color(hue: hue[2], saturation: saturation[2], brightness: brightness[2], alpha: 100))
+//            case "4":
+//                t.setPenColor(to: Color(hue: hueArray[3], saturation: saturationArray[3], brightness: brightnessArray[3], alpha: 100))
+//            case "5":
+//                t.setPenColor(to: Color(hue: hueArray[4], saturation: saturationArray[4], brightness: brightnessArray[4], alpha: 100))
+//            case "6":
+//                t.setPenColor(to: Color(hue: hueArray[5], saturation: saturationArray[5], brightness: brightnessArray[5], alpha: 100))
+//            case "7":
+//                t.setPenColor(to: Color(hue: hueArray[6], saturation: saturationArray[6], brightness: brightnessArray[6], alpha: 100))
+//            case "8":
+//                t.setPenColor(to: Color(hue: hueArray[7], saturation: saturationArray[7], brightness: brightnessArray[7], alpha: 100))
+//            case "9":
+//                t.setPenColor(to: Color(hue: hueArray[8], saturation: saturationArray[8], brightness: brightnessArray[8], alpha: 100))
             default:
                 break
             }
