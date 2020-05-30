@@ -174,8 +174,8 @@ class Sketch : NSObject {
        
 
         coniferousTree.update(forFrame: canvas.frameCount)
-        lightningBolt.update(forFrame: canvas.frameCount)
-        mitsubishi.update(forFrame: canvas.frameCount)
+//        lightningBolt.update(forFrame: canvas.frameCount)
+//        mitsubishi.update(forFrame: canvas.frameCount)
 
     }
     

@@ -34,6 +34,8 @@ struct LindenmayerSystem {
     var word: String = ""
     var currentLength: Double = 0
     
+     
+    
     // Turtle to draw with
     let t: Tortoise
     
@@ -56,6 +58,7 @@ struct LindenmayerSystem {
         // Set up the system state
         word = axiom
         currentLength = length
+         
         
         // Re-write the word for each generation
         for generation in 1...generations {
@@ -168,18 +171,18 @@ struct LindenmayerSystem {
                 t.setPenColor(to: Color(hue: hue[1], saturation: saturation[1], brightness: brightness[1], alpha: 100))
             case "3":
                 t.setPenColor(to: Color(hue: hue[2], saturation: saturation[2], brightness: brightness[2], alpha: 100))
-//            case "4":
-//                t.setPenColor(to: Color(hue: hueArray[3], saturation: saturationArray[3], brightness: brightnessArray[3], alpha: 100))
-//            case "5":
-//                t.setPenColor(to: Color(hue: hueArray[4], saturation: saturationArray[4], brightness: brightnessArray[4], alpha: 100))
-//            case "6":
-//                t.setPenColor(to: Color(hue: hueArray[5], saturation: saturationArray[5], brightness: brightnessArray[5], alpha: 100))
-//            case "7":
-//                t.setPenColor(to: Color(hue: hueArray[6], saturation: saturationArray[6], brightness: brightnessArray[6], alpha: 100))
-//            case "8":
-//                t.setPenColor(to: Color(hue: hueArray[7], saturation: saturationArray[7], brightness: brightnessArray[7], alpha: 100))
-//            case "9":
-//                t.setPenColor(to: Color(hue: hueArray[8], saturation: saturationArray[8], brightness: brightnessArray[8], alpha: 100))
+            case "4":
+                t.setPenColor(to: Color(hue: hue[3], saturation: saturation[3], brightness: brightness[3], alpha: 100))
+            case "5":
+                t.setPenColor(to: Color(hue: hue[4], saturation: saturation[4], brightness: brightness[4], alpha: 100))
+            case "6":
+                t.setPenColor(to: Color(hue: hue[5], saturation: saturation[5], brightness: brightness[5], alpha: 100))
+            case "7":
+                t.setPenColor(to: Color(hue: hue[6], saturation: saturation[6], brightness: brightness[6], alpha: 100))
+            case "8":
+                t.setPenColor(to: Color(hue: hue[7], saturation: saturation[7], brightness: brightness[7], alpha: 100))
+            case "9":
+                t.setPenColor(to: Color(hue: hue[8], saturation: saturation[8], brightness: brightness[8], alpha: 100))
             default:
                 break
             }
